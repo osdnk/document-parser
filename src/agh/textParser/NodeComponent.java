@@ -14,13 +14,13 @@ public class NodeComponent {
     public void print (int depthLevel, boolean withContent) {
         String spaces = String.join("", Collections.nCopies(depthLevel, "    "));
         System.out.println(spaces + this.id + " " + this.title);
-        if (!(this.type==NodeSectionType.chapter && withContent))
+        if (!withContent) {
             for (NodeComponent child : this.children) {
-            child.print(depthLevel+1, withContent);
-        }
-        if ((this.children.size()==0 || this.type==NodeSectionType.chapter) && withContent) { // chapter is 'special' because sometimes it has headers and articles related to any header
+                child.print(depthLevel + 1, withContent);
+            }
+        } else {
             for (String line : this.raw) {
-                System.out.println(spaces+ "    " + line);
+                System.out.println(spaces + "    " + line);
             }
         }
     }

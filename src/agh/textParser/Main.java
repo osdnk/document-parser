@@ -1,7 +1,6 @@
 package agh.textParser;
 
 
-import java.io.File;
 import java.io.IOException;
 import java.util.stream.Stream;
 import org.apache.commons.cli.*;
