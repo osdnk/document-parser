@@ -13,7 +13,9 @@ public class NodeComponent {
 
     public void print (int depthLevel, boolean withContent) {
         String spaces = String.join("", Collections.nCopies(depthLevel, "    "));
-        System.out.println(spaces + this.id + " " + this.title);
+        if (!withContent) {
+            System.out.println(spaces + this.id + " " + this.title);
+        }
         if (!withContent) {
             for (NodeComponent child : this.children) {
                 child.print(depthLevel + 1, withContent);
